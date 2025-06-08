@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kollective Hub - Main Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="icon" type="image/png" href="/static/image/image.png">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="noise"></div>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1 class="logo">Kollective Hub</h1>
+            <div class="system-status">
+                <div class="status-led {{ if .IsAuthenticated }}status-led-online{{ else }}status-led-offline{{ end }}"></div>
+                <span class="status-text">{{ if .IsAuthenticated }}ONLINE{{ else }}OFFLINE{{ end }}</span>
+            </div>
+        </div>
+        <div class="navbar-links">
+            {{ if .IsAuthenticated }}
+                <a href="/profile/">Profile</a>
+                <a href="/create/">Create Theme</a>
+                <a href="/upload/">Upload Theme</a>
+                <a href="/share/">Share Theme</a>
+                <a href="/logout/">Exit System</a>
+            {{ else }}
+                <a href="/login/">Login</a>
+                <a href="/register/">Register</a>
+            {{ end }}
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>KOLLECTIVE SYSTEM - MAIN INTERFACE</h1>
+        <p class="message">{{ .message }}</p>
+        <div class="alert-box">
+            <p class="message">SYSTEM ALERT: UNAUTHORIZED ACCESS WILL TRIGGER SECURITY PROTOCOLS.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-text">System Status: {{ .Status }}</p>
+        <p class="footer-text">Last Update: {{ .LastUpdate }}</p>
+    </footer>
+</body>
+</html>

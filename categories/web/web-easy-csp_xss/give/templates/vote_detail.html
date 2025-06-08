@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ pool.title }} - HAWK{% endblock %}
+{% block content %}
+<div class="atomic-detail-container">
+    <div class="atomic-detail-header">
+        <h1 class="atomic-detail-title">{{ pool.title | safe }}</h1>
+        <div class="atomic-detail-status {% if pool.is_active %}active{% else %}inactive{% endif %}">
+            {% if pool.is_active %}ACTIVE{% else %}CLOSED{% endif %}
+        </div>
+    </div>
+    
+    <div class="atomic-detail-info">
+        <div class="atomic-info-item">
+            <span class="atomic-info-label">DESCRIPTION:</span>
+            <span class="atomic-info-value">{{ pool.description | safe }}</span>
+        </div>
+        <div class="atomic-info-item">
+            <span class="atomic-info-label">CREATED:</span>
+            <span class="atomic-info-value">{{ pool.created_at.strftime('%d.%m.%Y %H:%M') }}</span>
+        </div>
+    </div>
+    
+    <div class="atomic-vote-results">
+        <h2 class="atomic-section-title">VOTING RESULTS</h2>
+        <div class="atomic-results-grid">
+            {% for i in range(3) %}
+            <div class="atomic-result-item">
+                <div class="atomic-option-header">
+                    <span class="atomic-option-name">{{ pool.options_json.options[i].text }}</span>
+                    <span class="atomic-option-percent">{{ progress_values[i] }}%</span>
+                </div>
+                <div class="atomic-progress-track">
+                    <div class="atomic-progress-bar progress-width-{{ progress_values[i] }}"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <a href="{{ url_for('routes.vote') }}" class="atomic-back-btn">RETURN TO VOTES</a>
+</div>
+{% endblock %}

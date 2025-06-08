@@ -1,0 +1,28 @@
+services:
+  service_provider:
+    build:
+      context: ./service_provider
+      dockerfile: Dockerfile_sp
+    container_name: service_provider
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    mem_limit: 256m
+    cpus: 2
+    env_file:
+      - ./.env
+    volumes:
+      - ./flag/flag:/service_provider/flag:ro  
+
+  identity_provider:
+    build:
+      context: ./identity_provider
+      dockerfile: Dockerfile_idp
+    container_name: identity_provider
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    ports: 
+      - "5001:5001"
+    mem_limit: 256m
+    cpus: 3

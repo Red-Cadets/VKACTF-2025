@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kollective Hub - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="icon" type="image/png" href="/static/image/image.png">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="noise"></div>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1 class="logo">Kollective Hub</h1>
+            <div class="system-status">
+                <div class="status-led status-led-offline"></div>
+                <span class="status-text">OFFLINE</span>
+            </div>
+        </div>
+        <div class="navbar-links">
+            <a href="/login/">Login</a>
+            <a href="/register/">Register</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Register</h1>
+        <p class="message">Join the Kollective Hub by creating a new profile. Your AtomID will be generated upon registration.</p>
+        <form method="POST" action="/register/">
+            <label for="Username">Username</label>
+            <input type="text" name="Username" placeholder="ENTER USERNAME" required>
+            <label for="Email">Email Address</label>
+            <input type="email" name="Email" placeholder="ENTER EMAIL" required>
+            <label for="Number">Contact Number</label>
+            <input type="text" name="Number" placeholder="ENTER NUMBER" required>
+            <label for="Password">Access Code</label>
+            <input type="password" name="Password" placeholder="ENTER CODE" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
+  18   │                 title="Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.">
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login/">Login</a></p>
+        {{ if .ErrorMessage }}
+            <p class="error">{{ .ErrorMessage }}</p>
+        {{ end }}
+        <div class="alert-box">
+            <p class="message">Note: Your data will be encrypted using Kollective Hub's quantum security layer.</p>
+        </div>
+    </div>
+
+
+
+<footer class="footer">
+    <p class="footer-text">System Status: OFFLINE</p>
+    <p class="footer-text">Last Update: {{ .LastUpdate }}</p>
+</footer>
+</body>
+</html>

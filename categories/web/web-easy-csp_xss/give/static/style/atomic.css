@@ -1,0 +1,832 @@
+:root {
+    --atomic-dark: #0a0a12;
+    --atomic-gray: #1a1a2e;
+    --atomic-light: #f1faee;
+    --atomic-red: #e63946;
+    --atomic-blue: #457b9d;
+    --atomic-dark-blue: #1d3557;
+    --atomic-teal: #a8dadc;
+}
+
+.atomic-body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--atomic-dark);
+    color: var(--atomic-light);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+.atomic-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.atomic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--atomic-red);
+}
+
+.atomic-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.atomic-red {
+    color: var(--atomic-red);
+}
+
+.atomic-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.atomic-nav-link {
+    color: var(--atomic-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.atomic-nav-link:hover, .atomic-nav-link.active {
+    border-bottom: 2px solid var(--atomic-red);
+    color: var(--atomic-red);
+}
+
+.atomic-content {
+    flex: 1;
+    padding: 30px 0;
+}
+
+.atomic-footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 2px solid var(--atomic-red);
+    font-size: 0.9rem;
+    color: var(--atomic-teal);
+}
+
+.atomic-hero {
+    background: linear-gradient(rgba(10, 10, 18, 0.7), rgba(10, 10, 18, 0.7)), 
+                url('https://example.com/soviet-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 50px;
+    border: 3px solid var(--atomic-red);
+    position: relative;
+}
+
+.atomic-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://example.com/soviet-pattern.png');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.atomic-hero-text h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.atomic-subtitle {
+    font-size: 1.5rem;
+    color: var(--atomic-teal);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.atomic-badge {
+    display: inline-block;
+    background: var(--atomic-red);
+    color: var(--atomic-light);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.atomic-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+}
+
+.atomic-feature {
+    background: var(--atomic-gray);
+    padding: 30px;
+    border: 1px solid var(--atomic-blue);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.atomic-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.2);
+}
+
+.atomic-feature::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--atomic-red);
+}
+
+.atomic-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.atomic-feature h3 {
+    color: var(--atomic-red);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.atomic-feature p {
+    color: var(--atomic-teal);
+}
+
+
+.atomic-cta {
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px;
+    background: var(--atomic-gray);
+    border: 1px solid var(--atomic-blue);
+}
+
+.atomic-cta h2 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: var(--atomic-light);
+}
+
+.atomic-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.atomic-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.atomic-btn-primary {
+    background: var(--atomic-red);
+    color: var(--atomic-light);
+}
+
+.atomic-btn-primary:hover {
+    background: #c1121f;
+    transform: translateY(-2px);
+}
+
+.atomic-btn-secondary {
+    background: transparent;
+    color: var(--atomic-red);
+    border: 2px solid var(--atomic-red);
+}
+
+.atomic-btn-secondary:hover {
+    background: rgba(230, 57, 70, 0.1);
+    transform: translateY(-2px);
+}
+
+.atomic-btn-block {
+    display: block;
+    width: 100%;
+}
+
+.atomic-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--atomic-gray);
+    padding: 40px;
+    border: 1px solid var(--atomic-blue);
+}
+
+.atomic-form-title {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--atomic-red);
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.atomic-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.atomic-input-group {
+    margin-bottom: 20px;
+}
+
+.atomic-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--atomic-blue);
+    color: var(--atomic-light);
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.atomic-input:focus {
+    outline: none;
+    border-color: var(--atomic-red);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+}
+
+.atomic-input::placeholder {
+    color: var(--atomic-teal);
+    opacity: 0.7;
+}
+
+.atomic-redirect {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--atomic-teal);
+}
+
+.atomic-link {
+    color: var(--atomic-red);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.atomic-link:hover {
+    text-decoration: underline;
+}
+
+.atomic-specs {
+    margin: 50px 0;
+}
+
+.atomic-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.atomic-table tr {
+    border-bottom: 1px solid var(--atomic-blue);
+}
+
+.atomic-table tr:last-child {
+    border-bottom: none;
+}
+
+.atomic-table td {
+    padding: 15px;
+    vertical-align: top;
+}
+
+.atomic-table td:first-child {
+    font-weight: bold;
+    color: var(--atomic-red);
+    width: 30%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .atomic-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .atomic-hero-text h2 {
+        font-size: 2rem;
+    }
+    
+    .atomic-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .atomic-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .atomic-buttons {
+        flex-direction: column;
+    }
+    
+    .atomic-btn {
+        width: 100%;
+    }
+    
+    .atomic-form-container {
+        padding: 30px 20px;
+    }
+}
+
+.atomic-detail-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background: var(--atomic-gray);
+    border: 2px solid var(--atomic-blue);
+    position: relative;
+}
+
+.atomic-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--atomic-red);
+    padding-bottom: 15px;
+}
+
+.atomic-detail-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--atomic-light);
+    margin: 0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.atomic-detail-status {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.atomic-detail-status.active {
+    background-color: var(--atomic-red);
+    color: var(--atomic-light);
+}
+
+.atomic-detail-status.inactive {
+    background-color: var(--atomic-blue);
+    color: var(--atomic-light);
+}
+
+.atomic-detail-info {
+    margin-bottom: 30px;
+}
+
+.atomic-info-item {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+.atomic-info-label {
+    font-weight: bold;
+    color: var(--atomic-red);
+    min-width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.atomic-info-value {
+    color: var(--atomic-teal);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.atomic-vote-results {
+    margin-top: 40px;
+}
+
+.atomic-section-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--atomic-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--atomic-blue);
+    padding-bottom: 10px;
+}
+
+.atomic-results-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.atomic-result-item {
+    background: rgba(26, 26, 46, 0.7);
+    padding: 15px;
+    border-left: 3px solid var(--atomic-red);
+    white-space: nowrap; /* Текст не переносится */
+    overflow: hidden; /* Обрезаем всё за пределами блока */
+    text-overflow: ellipsis;
+}
+
+.atomic-option-header {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.atomic-option-name {
+    color: var(--atomic-light);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.atomic-option-percent {
+    color: var(--atomic-teal);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.atomic-progress-track {
+    height: 10px;
+    background: rgba(69, 123, 157, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.atomic-progress-bar {
+    height: 100%;
+    background: var(--atomic-red);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.atomic-back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 30px;
+    background: var(--atomic-blue);
+    color: var(--atomic-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.atomic-back-btn:hover {
+    background: var(--atomic-dark-blue);
+    transform: translateY(-2px);
+}
+
+.atomic-vote-container {
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.atomic-vote-header {
+    margin-bottom: 40px;
+}
+
+.header-row {
+    align-items: center;
+    max-width: 900px
+}
+
+.atomic-vote-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--atomic-red);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.atomic-vote-form {
+    background: var(--atomic-gray);
+    padding: 30px;
+    border: 2px solid var(--atomic-blue);
+    margin-bottom: 40px;
+}
+
+.atomic-form-group {
+    margin-bottom: 25px;
+}
+
+.atomic-form-label {
+    display: block;
+    color: var(--atomic-red);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.atomic-form-input {
+    width: 97%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--atomic-blue);
+    color: var(--atomic-light);
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.atomic-form-input:focus {
+    outline: none;
+    border-color: var(--atomic-red);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+}
+
+.atomic-form-input::placeholder {
+    color: var(--atomic-teal);
+    opacity: 0.7;
+}
+
+.atomic-options-container {
+    display: grid;
+    gap: 15px;
+}
+
+.atomic-option-input {
+    position: relative;
+}
+
+.atomic-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.atomic-active-votes {
+    margin-top: 50px;
+}
+
+.atomic-votes-list {
+    display: grid;
+    gap: 20px;
+}
+
+.atomic-vote-item-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.atomic-vote-item {
+    max-width: 900px;
+    background: var(--atomic-gray);
+    padding: 20px;
+    border: 1px solid var(--atomic-blue);
+    transition: all 0.3s ease;
+    position: relative;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.atomic-vote-item:hover {
+    max-width: 900px;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.1);
+    border-color: var(--atomic-red);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.atomic-vote-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--atomic-red);
+}
+
+.atomic-vote-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.atomic-vote-item h3 {
+    color: var(--atomic-light);
+    margin: 0;
+    font-size: 1.2rem;
+    min-width: 0;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.atomic-vote-status {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.atomic-vote-status.active {
+    background: var(--atomic-red);
+    color: var(--atomic-light);
+}
+
+.atomic-vote-status.inactive {
+    background: var(--atomic-blue);
+    color: var(--atomic-light);
+}
+
+.atomic-vote-desc {
+    color: var(--atomic-teal);
+    margin-bottom: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.atomic-vote-options {
+    display: grid;
+    gap: 10px;
+}
+
+.atomic-vote-option {
+    display: flex;
+    align-items: center;
+}
+
+.atomic-radio {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--atomic-blue);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.atomic-radio:checked {
+    border-color: var(--atomic-red);
+}
+
+.atomic-radio:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 10px;
+    height: 10px;
+    background: var(--atomic-red);
+    border-radius: 50%;
+}
+
+.atomic-radio-label {
+    max-width: 835px;
+    color: var(--atomic-light);
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .atomic-detail-container,
+    .atomic-vote-container {
+        padding: 20px;
+    }
+    
+    .atomic-detail-header {
+        flex-direction: column;
+    }
+    
+    .atomic-detail-status {
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+    
+    .atomic-info-item {
+        flex-direction: column;
+    }
+    
+    .atomic-info-label {
+        margin-bottom: 5px;
+    }
+    
+    .atomic-form-actions {
+        flex-direction: column;
+    }
+    
+    .atomic-btn {
+        width: 100%;
+    }
+}
+
+.atomic-progress-track {
+    height: 10px;
+    background: rgba(69, 123, 157, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.atomic-progress-bar {
+    height: 100%;
+    background: var(--atomic-red);
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 0.5s ease;
+}
+
+.progress-width-0 { width: 0%; }
+.progress-width-5 { width: 5%; }
+.progress-width-10 { width: 10%; }
+.progress-width-15 { width: 15%; }
+.progress-width-20 { width: 20%; }
+.progress-width-25 { width: 25%; }
+.progress-width-30 { width: 30%; }
+.progress-width-35 { width: 35%; }
+.progress-width-40 { width: 40%; }
+.progress-width-45 { width: 45%; }
+.progress-width-50 { width: 50%; }
+.progress-width-55 { width: 55%; }
+.progress-width-60 { width: 60%; }
+.progress-width-65 { width: 65%; }
+.progress-width-70 { width: 70%; }
+.progress-width-75 { width: 75%; }
+.progress-width-80 { width: 80%; }
+.progress-width-85 { width: 85%; }
+.progress-width-90 { width: 90%; }
+.progress-width-95 { width: 95%; }
+.progress-width-100 { width: 100%; }
+
+
+.active .atomic-progress-bar {
+    box-shadow: 0 0 10px rgba(230, 57, 70, 0.7);
+}

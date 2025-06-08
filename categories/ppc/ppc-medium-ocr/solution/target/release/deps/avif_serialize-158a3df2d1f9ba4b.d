@@ -1,0 +1,10 @@
+/mnt/c/VKACTF2025/misc/ppc-medium-ocr/solution/mazerc/target/release/deps/libavif_serialize-158a3df2d1f9ba4b.rmeta: /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/lib.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/boxes.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/constants.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/writer.rs
+
+/mnt/c/VKACTF2025/misc/ppc-medium-ocr/solution/mazerc/target/release/deps/libavif_serialize-158a3df2d1f9ba4b.rlib: /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/lib.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/boxes.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/constants.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/writer.rs
+
+/mnt/c/VKACTF2025/misc/ppc-medium-ocr/solution/mazerc/target/release/deps/avif_serialize-158a3df2d1f9ba4b.d: /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/lib.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/boxes.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/constants.rs /home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/writer.rs
+
+/home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/lib.rs:
+/home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/boxes.rs:
+/home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/constants.rs:
+/home/dandelion/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/avif-serialize-0.8.3/src/writer.rs:

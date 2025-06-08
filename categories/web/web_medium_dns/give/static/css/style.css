@@ -1,0 +1,138 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Tech';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/ShareTechMonoRegular_0.otf') format('opentype');
+  }
+
+html{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+.birch-bg {
+  position: absolute;
+  background-image: url('../img/birch_fon.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.terminal-panel {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateX(-10%) translateY(-50%);
+  z-index: 2;
+  width: 35vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.terminal-bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  pointer-events: none;
+}
+
+
+.terminal-input {
+  position: absolute;
+  left: 8.6vw;
+  top: 19vh;
+  width: 18.9vw;
+  height: 19.2vh;
+  background-color: #000;
+  color: #e2e2c5;
+  font-family: 'Tech';
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 1vh 1vh 13vh 1vh;
+  box-sizing: border-box;
+  pointer-events: auto;
+  border-radius: 1.5vh;
+}
+
+.inventory {
+  position: absolute;
+  left: 9.3vw;
+  top: 57vh;
+  width: 18vw;
+  height: 18vh;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 5;
+  pointer-events: none;
+  row-gap: 0.4vw;
+  column-gap: 3.2vw;
+}
+
+.inventory-slot {
+  width: 7vw;
+  height: 7vw;
+  background: rgba(40,40,40,0.2);
+  border-radius: 1vw;
+  display: flex;
+  pointer-events: none;
+}
+
+#slot-1 { left: 46px;  top: 458px; }
+#slot-2 { left: 226px; top: 458px; }
+#slot-3 { left: 46px;  top: 638px; }
+#slot-4 { left: 226px; top: 638px; }
+
+.inventory-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.form-popup-alert{
+  display:none;
+  position:fixed;
+  max-width: 40vw;
+  max-height: 70vh;
+  left:49%;
+  top:28vh;
+  transform:translateX(-50%);
+  background:#232629;
+  color:#e2e2c5;
+  border:2px solid #ba2020;
+  padding:17px 34px;
+  border-radius:13px;
+  z-index:999;
+  font-size:1.1em;
+  box-shadow:0 2px 20px #000b;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+}
+
+.execute-btn {
+  width: 53%;
+  height: 6.2vh;
+  font-size: 3vh;
+  background: #6f0202;
+  color: #fff;
+  border: 2px solid #000000;
+  border-radius: 1vh;
+  font-weight: 500;
+  font-family: 'Tech';
+  padding: .1vh 0;
+  cursor: pointer;
+  pointer-events: auto;
+  position: absolute;
+  top: 40.4vh;
+  left: 8.7vw;
+  text-transform: uppercase;
+}

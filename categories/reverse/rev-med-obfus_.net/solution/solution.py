@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+def decrypt_xor_then_swap(data_bytes):
+    xor_key = b"Welcome back, admin!"
+    xored = bytearray()
+    for i in range(len(data_bytes)):
+        xored.append(data_bytes[i] ^ xor_key[i % len(xor_key)])
+    swapped = bytearray()
+    for i in range(0, len(xored), 4):
+        block = xored[i:i+4]
+        swapped += block[2:] + block[:2]
+    return swapped.decode()
+
+
+input_bytes = bytes([
+    0x22, 0x07, 0x08, 0x0C, 0x30, 0x02, 0x29, 0x13,
+    0x37, 0x02, 0x21, 0x0D, 0x1D, 0x6F, 0x55, 0x30,
+    0x29, 0x58, 0x20, 0x7E, 0x23, 0x3A, 0x28, 0x0D,
+    0x0E, 0x21, 0x17, 0x65, 0x3D, 0x36, 0x2F, 0x32,
+    0x67, 0x73, 0x0E, 0x16
+])
+
+print(decrypt_xor_then_swap(input_bytes))
+

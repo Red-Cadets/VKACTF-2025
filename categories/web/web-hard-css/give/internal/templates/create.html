@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kollective Hub - Main Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="icon" type="image/png" href="/static/image/image.png">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="noise"></div>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1 class="logo">Kollective Hub</h1>
+            <div class="system-status">
+                <div class="status-led status-led-online"></div>
+                <span class="status-text">ONLINE</span>
+            </div>
+        </div>
+        <div class="navbar-links">
+                <a href="/profile/">Profile</a>
+                <a href="/create/">Create Theme</a>
+                <a href="/upload/">Upload Theme</a>
+                <a href="/share/">Share Theme</a>
+                <a href="/logout/">Exit System</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Create Theme</h1>
+        <p class="message">Design your own theme for the Kollective Hub. Unleash your creativity!</p>
+    
+        <div class="alert-box">
+            <form method="GET" action="/">
+                <h2 style="color: #ff6b6b; text-shadow: 0 0 10px #ff6b6b; font-family: 'Orbitron', sans-serif;">
+                    🚧 Feature in Development 🚧
+                </h2>
+                <p class="message">
+                    This feature is currently under construction.<br>
+                    Please return later to create your custom theme.
+                </p>
+                <button type="submit">Return to Main Interface</button>
+            </form>
+        </div>
+    
+        <p class="message">WARNING: UNSUPPORTED THEMES WILL BE REJECTED BY THE SYSTEM.</p>
+    
+        <div class="alert-box">
+            <p class="message">Tip: Use unique names to avoid conflicts with existing themes.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-text">System Status: {{ .Status }}</p>
+        <p class="footer-text">Last Update: {{ .LastUpdate }}</p>
+    </footer>
+</body>
+</html>

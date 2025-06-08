@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="pfx1" Version="2.0" IssueInstant="${ISSUE_INSTANT}" Destination="http://localhost:5000/acs" InResponseTo="${IN_RESPONSE_TO}">
+  <saml:Issuer>http://idp.local/metadata</saml:Issuer>
+  <samlp:Status><samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/></samlp:Status>
+  <saml:Assertion ID="pfx2" Version="2.0" IssueInstant="${ISSUE_INSTANT}">
+    <saml:Issuer>http://idp.local/metadata</saml:Issuer>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">${USERNAME}</saml:NameID>
+      <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <saml:SubjectConfirmationData NotOnOrAfter="${NOT_AFTER}" Recipient="http://localhost:5000/acs" InResponseTo="${IN_RESPONSE_TO}" />
+      </saml:SubjectConfirmation>
+    </saml:Subject>
+    <saml:Conditions NotBefore="${ISSUE_INSTANT}" NotOnOrAfter="${NOT_AFTER}">
+      <saml:AudienceRestriction>
+        <saml:Audience>http://sp.local/metadata</saml:Audience>
+      </saml:AudienceRestriction>
+    </saml:Conditions>
+    <saml:AuthnStatement AuthnInstant="${ISSUE_INSTANT}">
+      <saml:AuthnContext>
+        <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</saml:AuthnContextClassRef>
+      </saml:AuthnContext>
+    </saml:AuthnStatement>
+    <saml:AttributeStatement>
+      <saml:Attribute Name="uid"><saml:AttributeValue>${USERNAME}</saml:AttributeValue></saml:Attribute>
+      <saml:Attribute Name="mail"><saml:AttributeValue>${USERNAME}@evil.local</saml:AttributeValue></saml:Attribute>
+    </saml:AttributeStatement>
+  </saml:Assertion>
+</samlp:Response>

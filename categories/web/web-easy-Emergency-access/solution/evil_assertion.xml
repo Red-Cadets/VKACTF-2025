@@ -1,0 +1,30 @@
+<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_6ff1876d-f939-4c6b-a635-b0ea570286rr" IssueInstant="2025-05-06T20:58:28Z" Version="2.0">
+  <saml:Issuer>http://localhost:5000/metadata</saml:Issuer>
+  <saml:Subject>
+    <saml:NameID>bf77f413-71ea-4e8b-aa2b-f547d38f0f31</saml:NameID>
+    <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <saml:SubjectConfirmationData InResponseTo="_88e86834-72a6-45ca-94c1-4273aed208b1" NotOnOrAfter="2025-05-06T21:08:28Z" Recipient="http://localhost:5000/acs"/>
+    </saml:SubjectConfirmation>
+  </saml:Subject>
+  <saml:Conditions NotBefore="2025-05-06T20:57:28Z" NotOnOrAfter="2025-05-06T21:08:28Z">
+    <saml:AudienceRestriction>
+      <saml:Audience>http://localhost:5000/metadata</saml:Audience>
+    </saml:AudienceRestriction>
+  </saml:Conditions>
+  <saml:AuthnStatement AuthnInstant="2025-05-06T20:58:28Z" SessionIndex="_0d204f03-85bc-48f0-9fd9-fa1aa967eb7d" SessionNotOnOrAfter="2025-05-06T21:58:28Z">
+    <saml:AuthnContext>
+      <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef>
+    </saml:AuthnContext>
+  </saml:AuthnStatement>
+  <saml:AttributeStatement>
+    <saml:Attribute Name="role">
+      <saml:AttributeValue>Creator</saml:AttributeValue>
+    </saml:Attribute>
+    <saml:Attribute Name="username">
+      <saml:AttributeValue>Zaharov</saml:AttributeValue>
+    </saml:Attribute>
+    <saml:Attribute Name="password">
+      <saml:AttributeValue>123</saml:AttributeValue>
+    </saml:Attribute>
+  </saml:AttributeStatement>
+</saml:Assertion>

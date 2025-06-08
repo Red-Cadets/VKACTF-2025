@@ -1,0 +1,11 @@
+C:\VKACTF2025\misc\ppc-medium-ocr\solution\mazerc\target\debug\deps\libav1_grain-ceea090197306b40.rmeta: C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\lib.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\create.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff\solver.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff\solver\util.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\parse.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\util.rs
+
+C:\VKACTF2025\misc\ppc-medium-ocr\solution\mazerc\target\debug\deps\av1_grain-ceea090197306b40.d: C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\lib.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\create.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff\solver.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff\solver\util.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\parse.rs C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\util.rs
+
+C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\lib.rs:
+C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\create.rs:
+C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff.rs:
+C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff\solver.rs:
+C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\diff\solver\util.rs:
+C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\parse.rs:
+C:\Users\gigbig\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\av1-grain-0.2.3\src\util.rs:

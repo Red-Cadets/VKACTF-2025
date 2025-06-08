@@ -1,0 +1,38 @@
+{
+  "name": "kollective1.0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/env": "^15.2.4",
+    "@prisma/client": "^6.5.0",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.4",
+    "cookies-next": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "jose": "^6.0.10",
+    "jsonwebtoken": "^9.0.2",
+    "next": "15.2.1",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "tsx": "^4.19.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.1",
+    "prisma": "^6.5.0",
+    "typescript": "^5"
+  }
+}

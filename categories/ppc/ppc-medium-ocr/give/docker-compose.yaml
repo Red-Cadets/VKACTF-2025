@@ -1,0 +1,9 @@
+services:
+  misc-h-labirint:
+    build: .
+    container_name: labirintus
+    expose:
+      - "5000"
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 4.0

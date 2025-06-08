@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КОЛЛЕКТИВ 2.0 | Система контроля доступа</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <div class="container">
+    
+
+    <div class="header">
+      <h1>КОЛЛЕКТИВ 2.0</h1>
+      <p>СИСТЕМА КОНТРОЛЯ ДОСТУПА</p>
+    </div>
+
+    <div class="main-content">
+      <div class="login-form">
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+        <form action="/sso/login" method="post" id="loginForm">
+          <div class="form-group">
+            <label for="username">ИДЕНТИФИКАТОР СОТРУДНИКА</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">КЛЮЧ ДОСТУПА</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+
+          <button type="submit" class="submit-btn">ВОЙТИ В СИСТЕМУ</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>ВЕРСИЯ 1.9.8.3 | © 1955 МИНИСТЕРСТВО ОБОРОНЫ СССР</p>
+    </div>
+  </div>
+
+  <script>
+    function prepareSaml() {
+      document.getElementById('saml-username').value = document.getElementById('username').value;
+      document.getElementById('saml-password').value = document.getElementById('password').value;
+      document.getElementById('samlForm').submit();
+    }
+  </script>
+</body>
+</html>

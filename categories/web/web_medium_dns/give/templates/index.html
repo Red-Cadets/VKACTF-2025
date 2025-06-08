@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Берёза ПК-4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/reset.css">
+</head>
+<body>
+  <div id="form-popup-alert" class="form-popup-alert"></div>
+  <div id="polymer3d-container"
+    style="position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:3000; background: url('/static/img/birch_fon.jpg') center/cover no-repeat; display:none;">
+    <canvas id="polymer-shader-canvas" style="width:100vw; height:100vh; display:block;"></canvas>
+  </div>
+  <main class="main">
+    <div class="birch-bg"></div>
+    <div class="terminal-panel">
+      <img src="../static/img/terminal-a.png" alt="" class="terminal-bg">
+
+      <form class="terminal-form" method="POST" autocomplete="off">
+        <input type="text" name="url" class="terminal-input" maxlength="64" autocomplete="off">
+        <button class="execute-btn" type="submit">Выполнить</button>
+      </form>
+
+      <div class="inventory">
+        <div class="inventory-slot" id="slot-1"></div>
+        <div class="inventory-slot" id="slot-2"></div>
+        <div class="inventory-slot" id="slot-3"></div>
+        <div class="inventory-slot" id="slot-4"></div>
+      </div>
+
+    </div>
+  </main>
+  <script src="{{ url_for('static', filename='js/polymer_animation.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% if mah_id %}
+    <script>
+      showFormPopup({{ mah_id|tojson }});
+      updateInventoryFromBackend();
+    </script>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HAWK - Collective Decision Engine{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="/static/img/icon.ico">
+    <link rel="stylesheet" href="/static/style/atomic.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body class="atomic-body">
+    <div class="atomic-container">
+        <div class="atomic-header">
+            <h1 class="atomic-logo">BECOME<span class="atomic-red">HAWK</span></h1>
+            <div class="atomic-nav">
+                <a href="/" class="atomic-nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                {% if current_user_id %}
+                    <a href="/vote" class="atomic-nav-link {% if request.path.startswith('/vote') %}active{% endif %}">Vote</a>
+                    <a href="/logout" class="atomic-nav-link">Logout</a>
+                {% else %}
+                    <a href="/login" class="atomic-nav-link {% if request.path == '/login' %}active{% endif %}">Login</a>
+                    <a href="/register" class="atomic-nav-link {% if request.path == '/register' %}active{% endif %}">Register</a>
+                {% endif %}
+
+            </div>
+        </div>
+        
+        <div class="atomic-content">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <div class="atomic-footer">
+            <p>© 2025 HAWK™ – Collective Decision Engine</p>
+        </div>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

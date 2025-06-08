@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КОЛЛЕКТИВ 2.0 | Главный терминал</title>
+    <link rel="stylesheet" href="../static/collective.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>КОЛЛЕКТИВ 2.0</h1>
+            <div class="user-info">
+                <span>СЕАНС: <strong>АКТИВЕН</strong></span>
+                <span>ПОЛЬЗОВАТЕЛЬ: <strong>{{username}}</strong></span>
+                <span>УРОВЕНЬ ДОСТУПА: <strong>{{role}}</strong></span>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="nav-item active" data-block="1">
+                <i>≡</i> ГЛАВНЫЙ ТЕРМИНАЛ
+            </a>
+            </div>
+            <div class="nav-item" data-block="2">
+                <i>≡</i> СПЕЦИАЛЬНЫЙ ДОСТУП
+            </div>
+            <div class="nav-item" style="margin-top: auto;">
+                <a href="/logout">
+                <i>≡</i> ВЫХОД
+                </a>
+            </div>
+        </div>
+
+        <div class="block active" id="block-1">
+            <div class="alert alert-warning">
+                ВНИМАНИЕ! Обнаружена аномальная активность в секторе B4. Требуется проверка.
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    СТАТУС СИСТЕМЫ
+                    <span>1955-06-15 14:30:42</span>
+                </div>
+                <div class="panel-body">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div>
+                            <h3>ПЛАТФОРМА 3826</h3>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                            <span>65% ЗАГРУЗКИ</span>
+                        </div>
+                        <div>
+                            <h3>НЕЙРОННЫЕ СЕТИ</h3>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 42%;"></div>
+                            </div>
+                            <span>42% ЗАГРУЗКИ</span>
+                        </div>
+                        <div>
+                            <h3>БЕЗОПАСНОСТЬ</h3>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 88%;"></div>
+                            </div>
+                            <span>88% ЗАГРУЗКИ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    ПОСЛЕДНИЕ СОБЫТИЯ
+                </div>
+                <div class="panel-body">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ВРЕМЯ</th>
+                                <th>СОБЫТИЕ</th>
+                                <th>СТАТУС</th>
+                                <th>ДЕЙСТВИЕ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>14:28:15</td>
+                                <td>Обновление протокола "Коллектив"</td>
+                                <td>УСПЕШНО</td>
+                                <td><button class="btn">ОТЧЕТ</button></td>
+                            </tr>
+                            <tr>
+                                <td>14:25:42</td>
+                                <td>Активация роботизированных юнитов</td>
+                                <td>В ПРОЦЕССЕ</td>
+                                <td><button class="btn">МОНИТОРИНГ</button></td>
+                            </tr>
+                            <tr>
+                                <td>14:20:03</td>
+                                <td>Обнаружение аномалии в секторе B4</td>
+                                <td>ОШИБКА</td>
+                                <td><button class="btn">ДИАГНОСТИКА</button></td>
+                            </tr>
+                            <tr>
+                                <td>14:15:37</td>
+                                <td>Проверка систем безопасности</td>
+                                <td>УСПЕШНО</td>
+                                <td><button class="btn">ОТЧЕТ</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    КРИТИЧЕСКИЕ ПОКАЗАТЕЛИ
+                </div>
+                <div class="panel-body">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center;">
+                        <div>
+                            <div style="font-size: 24px; font-weight: bold;">3826</div>
+                            <div style="font-size: 12px;">ЮНИТОВ</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 24px; font-weight: bold;">97%</div>
+                            <div style="font-size: 12px;">СИНХРОНИЗАЦИЯ</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 24px; font-weight: bold;">15</div>
+                            <div style="font-size: 12px;">АНОМАЛИЙ</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 24px; font-weight: bold;">3</div>
+                            <div style="font-size: 12px;">КРИТ. ОШИБКИ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block" id="block-2">
+            <div class="glitch-effect"></div>
+        
+            <div class="special-container enhanced-access">
+                <div class="access-frame">
+                    <div class="glow-border"></div>
+            
+                    {% if flag %}
+                        <div class="special-title glitch-text" style="font-size: 2.2rem;">ПРОТОКОЛ ДОСТУПА: КЛАСС "Ω"</div>
+                        <div class="access-subtext access-granted" style="font-size: 1.5rem;">ДОСТУП ПОДТВЕРЖДЕН: <strong>{{ role }}</strong></div>
+                        <div class="flag-box neon-box">
+                            <div class="flag-label" style="font-size: 1.3rem;">РАЗБЛОКИРОВАННЫЙ ФЛАГ:</div>
+                            <div class="flag-display pulse"><code style="font-size: 1.4rem;">{{ flag }}</code></div>
+                            <div class="access-warning" style="font-size: 1.2rem;">Неразрешённый доступ приведёт к полной деактивации протокола.</div>
+                        </div>
+                    {% else %}
+                        <div class="special-title glitch-text" style="font-size: 2.2rem;">ПРОТОКОЛ ДОСТУПА: ДЕАКТИВАЦИЯ</div>
+                        <div class="access-subtext access-denied" style="font-size: 1.5rem;">ДОСТУП ОТКЛОНЕН: <strong>{{ role }}</strong></div>
+                        <div class="flag-box red-box">
+                            <div class="flag-label" style="font-size: 1.3rem;">ФЛАГ ЗАСЕКРЕЧЕН:</div>
+                            <div class="flag-display censored"><code style="font-size: 1.4rem;">vka{*******************}</code></div>
+                            <div class="atomic-timer" style="margin-top: 20px;">
+                                <div class="timer-warning" style="font-size: 1.2rem; color: #ff3e3e;">
+                                    ⚠ ТРЕВОГА: ОБНАРУЖЕН НЕСАНКЦИОНИРОВАННЫЙ ДОСТУП
+                                </div>
+                                <div class="timer-display" style="font-size: 1.8rem; font-family: 'Courier New', monospace; color: #ff6d6d;">
+                                    <span class="timer-icon">⏱</span>
+                                    <span id="countdown" class="blinking">30</span>
+                                    <span class="timer-unit">СЕКУНД ДО АВТОЛИКВИДАЦИИ</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="status-bar">
+            <div>СЕРВЕР: ПЛАТФОРМА-3826 | СЕКТОР: A1</div>
+            <div>СИСТЕМА КОНТРОЛЯ ДОСТУПА АКТИВНА</div>
+            <div>ВЕРСИЯ 1.9.8.3</div>
+        </div>
+    </div>
+
+    <script>
+        const progressBars = document.querySelectorAll('.progress');
+        progressBars.forEach(bar => {
+            const targetWidth = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = targetWidth;
+            }, 300);
+        });
+
+        let countdown = 30;
+        let timerStarted = false;
+
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelectorAll('.block').forEach(b => b.classList.remove('active'));
+                const blockNum = this.getAttribute('data-block');
+                const block = document.getElementById(`block-${blockNum}`);
+                if (block) block.classList.add('active');
+
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+
+                if (blockNum === '2' && !timerStarted) { 
+                    timerStarted = true;
+
+                    const timer = setInterval(() => {
+                        countdown--;
+                        document.getElementById("countdown").textContent = countdown;
+                        if (countdown <= 0) {
+                            clearInterval(timer);
+                            window.location.href = "/logout";
+                        }
+                    }, 1000);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

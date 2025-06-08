@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kollective Hub - Main Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link id="theme-link" rel="stylesheet" href="">
+    <link rel="icon" type="image/png" href="/static/image/image.png">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="noise"></div>
+
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1 class="logo">Kollective Hub</h1>
+            <div class="system-status">
+                <div class="status-led status-led-online"></div>
+                <span class="status-text">ONLINE</span>
+            </div>
+        </div>
+        <div class="navbar-links">
+                <a href="/profile/">Profile</a>
+                <a href="/create/">Create Theme</a>
+                <a href="/upload/">Upload Theme</a>
+                <a href="/share/">Share Theme</a>
+                <a href="/logout/">Exit System</a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1>Profile</h1>
+        {{ if .error }}
+            <p class="error">{{ .error }}</p>
+        {{ else }}
+        <div class="profile-info">
+            <div class="profile-row"><strong class="label">Name:</strong> <span class="value">{{ .Username }}</span></div>
+            <div class="profile-row"><strong class="label">Email:</strong> <span class="value">{{ .Email }}</span></div>
+            <div class="profile-row"><strong class="label">Number:</strong> <span class="value">{{ .Number }}</span></div>
+            <div class="profile-row"><strong class="label">AtomID:</strong> <span class="value">{{ .AtomID }}</span></div>
+        </div>
+            <h1>Your Themes</h1>
+            <div class="theme-grid">
+                {{ range .Themes }}
+                    <div class="theme-item">
+                        <a href="#" onclick="switchTheme('{{ .Link }}'); return false;">{{ .Name }}</a>
+                        <p><a href="{{ .Link }}">Link</a></p>
+                        <form method="POST" action="/profile/delete">
+                            <input type="hidden" name="theme_id" value="{{ .ID }}">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                {{ end }}
+            </div>
+            <p class="message">{{ .message }}</p>
+        {{ end }}
+        <div class="theme-preview">
+            <p class="message">Theme Preview: Activate a theme to see its effect on the interface!</p>
+        </div>
+
+        <script>
+            function switchTheme(themeUrl) {
+                const themeLink = document.getElementById('theme-link');
+                themeLink.href = themeUrl;
+                localStorage.setItem('selectedTheme', themeUrl);
+            }
+
+            window.onload = function() {
+                const savedTheme = localStorage.getItem('selectedTheme');
+                if (savedTheme) {
+                    switchTheme(savedTheme);
+                }
+            };
+
+            setTimeout(() => {
+                localStorage.removeItem('selectedTheme');
+                console.log('Тема удалена из localStorage');
+            }, 2000);
+        </script>
+    </div>
+
+
+    <footer class="footer">
+        <p class="footer-text">System Status: {{ .Status }}</p>
+        <p class="footer-text">Last Update: {{ .LastUpdate }}</p>
+    </footer>
+</body>
+</html>

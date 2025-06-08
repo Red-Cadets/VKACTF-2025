@@ -1,0 +1,98 @@
+services:
+  
+  web-m-hawk-gunicorn:
+    container_name: web-m-hawk-gunicorn
+    build: .
+    env_file: 
+      - .env
+    ports:
+      - "${SERVICE_PORT}:${SERVICE_PORT}"
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    restart: unless-stopped
+    depends_on:
+      web-m-hawk-postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+    command: sh -c "until pg_isready -h web-m-hawk-postgres -U ${POSTGRES_USER} -d ${POSTGRES_DB}; do sleep 2; done && gunicorn -w 4 -b 0.0.0.0:${SERVICE_PORT} run:app"
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+          pids: 300
+
+  web-m-hawk-postgres:
+    container_name: web-m-hawk-postgres
+    image: postgres:15
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - db_data:/var/lib/postgresql/data 
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+          pids: 300
+
+  web-m-hawk-redis:
+    image: redis:7
+    container_name: web-m-hawk-redis
+    restart: unless-stopped
+    env_file:
+    - .env
+    networks:
+      - app-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+          pids: 700
+
+  web-m-hawk-bot:
+    build: 
+      context: ./bot
+      dockerfile: Dockerfile
+    container_name: web-m-hawk-bot
+    volumes:
+    - ./bot/flag/flag:/app/flag/flag:ro
+    restart: unless-stopped
+    env_file:
+    - .env
+    ports:
+    - "${BOT_PORT}:${BOT_PORT}"
+    depends_on:
+      web-m-hawk-postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+          pids: 300
+
+volumes:
+  db_data:
+
+networks:
+  app-network:
+  

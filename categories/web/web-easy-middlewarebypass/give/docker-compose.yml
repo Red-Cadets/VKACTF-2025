@@ -1,0 +1,90 @@
+services:
+  
+  client:
+    build: ./kollective1.0
+    container_name: kollective_client
+    expose:
+      - "3000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '4.50'
+          memory: 2G
+          pids: 60
+    networks:
+      - internal
+    command: >
+      sh -c "
+        npx prisma migrate deploy &&
+        npx tsx scripts/seed.ts  &&
+        npm run start 
+      "
+    
+
+  db:
+    container_name: kollective_db
+    image: postgres:16
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    expose:
+      - "5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./dump.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', '${DB_USER}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '3.00'
+          memory: 2G
+          pids: 40
+    networks:
+      - internal
+
+  
+  nginx:
+    container_name: kollective_nginx
+    image: nginx:latest
+    ports:
+      - '19999:19999'
+    depends_on:
+      - client
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    restart: always
+    networks:
+      - internal
+    deploy:
+      resources:
+        limits:
+          cpus: '5.00'
+          memory: 2G
+          pids: 20
+  cron-cleaner:
+    build:
+      context: ./cleaner
+    networks:
+      - internal
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@kollective_db:5432/${DB_NAME}
+    depends_on:
+      - db
+volumes:
+  postgres_data:
+
+networks:
+  internal:
+    driver: bridge

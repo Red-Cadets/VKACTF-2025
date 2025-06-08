@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}CREATE VOTE - HAWK{% endblock %}
+{% block content %}
+<div class="atomic-vote-container">
+    <div class="atomic-vote-header">
+        <div class="header-row">
+            <h1>CREATE NEW VOTE</h1>
+            <div class="atomic-badge">OFFICIAL VOTING FORM</div>
+        </div>
+    </div>
+    
+    <form method="POST" action="{{ url_for('routes.vote') }}" class="atomic-vote-form" id="pollForm">
+        <div class="atomic-form-group">
+            <label class="atomic-form-label">VOTE TITLE</label>
+            <input type="text" id="title" name="title" placeholder="ENTER VOTING SUBJECT" maxlength="100" required 
+                   class="atomic-form-input">
+        </div>
+        
+        <div class="atomic-form-group">
+            <label class="atomic-form-label">DESCRIPTION</label>
+            <input type="text" id="description" name="description" placeholder="ENTER BRIEF DESCRIPTION" required
+                   class="atomic-form-input">
+        </div>
+        
+        <div class="atomic-form-group">
+            <label class="atomic-form-label">VOTING OPTIONS</label>
+            <div class="atomic-options-container" id="optionsContainer">
+                <div class="atomic-option-input">
+                    <input type="text" name="options[]" value="FOR" class="atomic-form-input">
+                </div>
+                <div class="atomic-option-input">
+                    <input type="text" name="options[]" value="AGAINST" class="atomic-form-input">
+                </div>
+                <div class="atomic-option-input">
+                    <input type="text" name="options[]" value="ABSTAIN" class="atomic-form-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="atomic-form-actions">
+            <a href="/" class="atomic-btn atomic-btn-secondary">CANCEL</a>
+            <button type="submit" class="atomic-btn atomic-btn-primary">SUBMIT VOTE</button>
+        </div>
+    </form>
+    
+    {% if pools %}
+    <div class="atomic-active-votes">
+        <h2 class="atomic-section-title">YOUR ACTIVE VOTES</h2>
+        <div class="atomic-votes-list">
+            {% for pool in pools %}
+            {% if pool.creator_id == user_id %}
+            <a href="{{ url_for('routes.vote_detail', pool_uuid=pool.uuid) }}" class="atomic-vote-item-link">
+                <div class="atomic-vote-item">
+                    <div class="atomic-vote-header">
+                        <h3>{{ pool.title }}</h3>
+                        <div class="atomic-vote-status {% if pool.is_active %}active{% else %}inactive{% endif %}">
+                            {% if pool.is_active %}ACTIVE{% else %}CLOSED{% endif %}
+                        </div>
+                    </div>
+                    <p class="atomic-vote-desc">{{ pool.description }}</p>
+                    <div class="atomic-vote-options">
+                        {% for option in pool.options_json.options %}
+                        <div class="atomic-vote-option">
+                            <input type="radio" name="poll_{{ pool.uuid }}" id="option_{{ pool.uuid }}_{{ loop.index }}" 
+                                   value="{{ option.text }}" class="atomic-radio">
+                            <label for="option_{{ pool.uuid }}_{{ loop.index }}" class="atomic-radio-label">
+                                {{ option.text }}
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/js/app.js"></script>
+{% endblock %}

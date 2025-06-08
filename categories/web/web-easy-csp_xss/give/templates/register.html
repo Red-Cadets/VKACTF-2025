@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Register - HAWK{% endblock %}
+{% block content %}
+<div class="atomic-form-container">
+    <h1 class="atomic-form-title">ACCESS REQUEST FORM</h1>
+    <form method="POST" class="atomic-form">
+        <div class="atomic-input-group">
+            <input type="text" name="name" placeholder="FULL NAME" required class="atomic-input">
+        </div>
+        <div class="atomic-input-group">
+            <input type="text" name="login" placeholder="COMRADE ID" required class="atomic-input">
+        </div>
+        <div class="atomic-input-group">
+            <input type="password" name="password" placeholder="SECURE PASSPHRASE" required
+                class="atomic-input"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
+                title="Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.">
+        </div>
+        <button type="submit" class="atomic-btn atomic-btn-primary atomic-btn-block">SUBMIT REQUEST</button>
+    </form>
+    <div class="atomic-redirect">
+        <p>ALREADY HAVE ACCESS? <a href="{{ url_for('auth.login') }}" class="atomic-link">PROCEED TO LOGIN</a></p>
+    </div>
+</div>
+{% endblock %}

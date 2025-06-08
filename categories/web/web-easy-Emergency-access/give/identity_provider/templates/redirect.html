@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Передача данных</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: radial-gradient(circle at center, #2c2c2c, #1a1a1a);
+            color: #f1f1f1;
+            font-family: 'Russo One', sans-serif;
+            text-align: center;
+            padding: 5%;
+        }
+
+        h1 {
+            color: #e63946;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        form {
+            margin-top: 2rem;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 12px 24px;
+            font-size: 1rem;
+            background-color: #e63946;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #c11f30;
+        }
+
+        .loader {
+            margin: 2rem auto;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #e63946;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+    </style>
+</head>
+<body>
+    <h1>Центральный модуль авторизации</h1>
+    <p>Передача биометрических данных в SP. Пожалуйста, подождите...</p>
+
+    <div class="loader"></div>
+
+    <form method="post" action="{{ acs_url }}">
+        <input type="hidden" name="SAMLResponse" value="{{ saml_b64 }}">
+        <input type="hidden" name="RelayState" value="{{ relay_state }}">
+        <button type="submit">Запустить вручную</button>
+    </form>
+
+    <script>
+        setTimeout(() => {
+            document.forms[0].submit();
+        }, 1000);
+    </script>
+</body>
+</html>

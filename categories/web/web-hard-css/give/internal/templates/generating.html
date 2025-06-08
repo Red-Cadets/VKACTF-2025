@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generating AtomID</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="icon" type="image/png" href="/static/image/image.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #1a1a2e;
+            color: #d8e1ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 107, 107, 0) 0%, rgba(255, 107, 107, 0.1) 50%, rgba(255, 107, 107, 0) 100%);
+            pointer-events: none;
+            opacity: 0.6;
+            z-index: 9999;
+            animation: scanline 6s linear infinite;
+        }
+
+        .container {
+            background: rgba(30, 34, 62, 0.95);
+            border: 3px solid #ff6b6b;
+            border-radius: 8px;
+            padding: 40px 30px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .terminal-line {
+            opacity: 0;
+            margin: 12px 0;
+            font-size: 16px;
+            text-shadow: 0 0 8px #ff6b6b;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="container" id="terminal">
+        <h2 class="highlight">ATOM ID PROVISIONING</h2>
+    </div>
+
+    <script>
+        const messages = [
+            ">> Initializing generation module...",
+            ">> Establishing secure uplink...",
+            ">> Authenticating <strong>{{ .Username }}</strong>...",
+            ">> Generating entropy vectors...",
+            ">> Encrypting quantum fingerprint...",
+            ">> Finalizing AtomID sequence...",
+            ">> <span class='highlight'>AtomID successfully generated!</span>",
+            ">> Redirecting to login portal..."
+        ];
+
+        const terminal = document.getElementById("terminal");
+
+        let delay = 1000;
+
+        messages.forEach((msg, index) => {
+            setTimeout(() => {
+                const line = document.createElement("div");
+                line.className = "terminal-line";
+                line.innerHTML = msg;
+                line.style.animationDelay = "0s";
+                terminal.appendChild(line);
+            }, delay * (index + 1));
+        });
+
+        setTimeout(() => {
+            window.location.href = "/login/";
+        }, delay * (messages.length + 1));
+    </script>
+</body>
+</html>

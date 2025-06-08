@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Login - HAWK{% endblock %}
+{% block content %}
+<div class="atomic-form-container">
+    <h1 class="atomic-form-title">AUTHORIZATION REQUIRED</h1>
+    <form method="POST" class="atomic-form">
+        <div class="atomic-input-group">
+            <input type="text" name="login" placeholder="COMRADE ID" required class="atomic-input">
+        </div>
+        <div class="atomic-input-group">
+            <input type="password" name="password" placeholder="PASSPHRASE" required class="atomic-input">
+        </div>
+        <button type="submit" class="atomic-btn atomic-btn-primary atomic-btn-block">AUTHENTICATE</button>
+    </form>
+    <div class="atomic-redirect">
+        <p>NOT REGISTERED? <a href="{{ url_for('auth.register') }}" class="atomic-link">REQUEST ACCESS</a></p>
+    </div>
+</div>
+{% endblock %}
